@@ -15,4 +15,4 @@ console.log(typeof 'codeup' === 'string');
 console.log('codeup' === 'codeup' && 'codeup' === 'Codeup');
 console.log(4 >= 0 && 1 !== '1');
 console.log(6 % 3 === 0);
-console.log(5 % 2 !== 0);
+console.log(5 % 2 !== 0)
