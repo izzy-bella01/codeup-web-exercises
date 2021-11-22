@@ -1,1 +1,1 @@
-Getting Git is legit.
+Second line added to git-test.txt
