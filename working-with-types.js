@@ -79,6 +79,9 @@ var preCustomer = expired;
 
 //Exercise 4
 
+var username = 'codeup';
+var password = 'notastrongpassword';
+
 var passFivePlus = true;
 var passNotUser = true;
 var userNotTwenty = true;
