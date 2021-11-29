@@ -33,9 +33,10 @@ console.log(helloMessage);
  */
 
 var myName = "Joanna";
-function sayHello(name) {
+/* function sayHello(name) {
     return "Hello," + " " + name + "!";
-}
+} */
+//did not need to write the function again ^
 console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
@@ -60,15 +61,15 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
-function isTwo (number) {
-    if (number === 2) {
+function isTwo (random) {
+    if (random === 2) {
         return true;
     } else {
       return false;
     }
 }
 isTwo(random);
-console.log(isTwo());
+console.log(isTwo(random));
 
 /**
  * TODO:
@@ -86,7 +87,7 @@ function calculateTip(tipPercent, billTotal) {
     return tipPercent * billTotal;
 }
 calculateTip();
-//console.log(calculateTip(.20, 20));
+console.log(calculateTip(.16, 20).toFixed(2));
 
 /**
  * TODO:
@@ -95,15 +96,19 @@ calculateTip();
  * then display the dollar amount they should tip
  */
 
-calculateTip(){
-    prompt("Please enter bill total and tip percent in decimal form.");
-    if (tipPercent > 0 <= 1 && billTotal > 1 ) {
-        alert(tipPercent * billTotal);
-    } else {
-        alert("sorry please re-enter.");
-    }
-}
-calculateTip();
+// calculateTip(){
+//     prompt("Please enter bill total and tip percent in decimal form.");
+//     if (tipPercent > 0 <= 1 && billTotal > 1 ) {
+//         alert(tipPercent * billTotal);
+//     } else {
+//         alert("sorry please re-enter.");
+//     }
+// }
+// calculateTip();
+
+let x = prompt("Enter your bill total", "");
+let y = prompt("Enter the amount you want to tip in decimal form", "");
+alert("Tip $" + calculateTip(x,y)); // looked at Kat's example here, my original solution above that did not work.
 
 /**
  * TODO:
