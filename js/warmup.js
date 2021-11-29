@@ -37,27 +37,34 @@
     // Return the dividend of two numbers
 
 
-function addFun(firstNum, secondNum) {
-    return firstNum + secondNum;
-}
-console.log(addFun(10, 8));
+// function addFun(firstNum, secondNum) {
+//     return firstNum + secondNum;
+// }
+// console.log(addFun(10, 8));
+//
+// function subFun(firstNum, secondNum) {
+//     return firstNum - secondNum;
+// }
+// console.log(subFun(20, 7));
+//
+// function proFun(firstNum, secondNum) {
+//     return firstNum * secondNum;
+// }
+// console.log(proFun(25, 5));
+//
+// function divFun(firstNum, secondNum) {
+//     return firstNum / secondNum;
+// }
+// console.log(divFun(50, 10));
+//
+// function remFun(firstNum, secondNum) {
+//     return firstNum % secondNum;
+// }
+// console.log(remFun(45,7));
 
-function subFun(firstNum, secondNum) {
-    return firstNum - secondNum;
-}
-console.log(subFun(20, 7));
+//Warm up for 11-29-2021
 
-function proFun(firstNum, secondNum) {
-    return firstNum * secondNum;
+function reverseString(str) {
+    return str.split("").reverse().join("");
 }
-console.log(proFun(25, 5));
-
-function divFun(firstNum, secondNum) {
-    return firstNum / secondNum;
-}
-console.log(divFun(50, 10));
-
-function remFun(firstNum, secondNum) {
-    return firstNum % secondNum;
-}
-console.log(remFun(45,7));
+console.log(reverseString("hello"));
