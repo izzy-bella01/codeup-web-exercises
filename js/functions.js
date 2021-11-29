@@ -86,7 +86,7 @@ function calculateTip(tipPercent, billTotal) {
     return tipPercent * billTotal;
 }
 calculateTip();
-console.log(calculateTip(.20, 20));
+//console.log(calculateTip(.20, 20));
 
 /**
  * TODO:
@@ -95,7 +95,15 @@ console.log(calculateTip(.20, 20));
  * then display the dollar amount they should tip
  */
 
-
+calculateTip(){
+    prompt("Please enter bill total and tip percent in decimal form.");
+    if (tipPercent > 0 <= 1 && billTotal > 1 ) {
+        alert(tipPercent * billTotal);
+    } else {
+        alert("sorry please re-enter.");
+    }
+}
+calculateTip();
 
 /**
  * TODO:
