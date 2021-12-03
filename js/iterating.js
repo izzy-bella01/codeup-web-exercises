@@ -44,8 +44,8 @@
      * Refactor your above code to use a `forEach` loop
      */
 
-    names.forEach(function (name){
-        console.log("this name is using for-each: " + name);
+    names.forEach(function (element){
+        console.log("this name is using for-each: " + element);
     })
 
     /**
