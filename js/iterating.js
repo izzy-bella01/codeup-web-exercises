@@ -73,10 +73,11 @@
     }
     secondFunction(arrayOfNum);
 
-    function thirdFunction(array) {
-        console.log("this returns array element: " + array[2]);
+    function lastFunction(array) {
+        let lastIndexOfArray = array.length - 1;
+        console.log("this returns array element: " + array[lastIndexOfArray]);
     }
-    thirdFunction(arrayOfNum);
+    lastFunction(arrayOfNum);
 
 
 })();
