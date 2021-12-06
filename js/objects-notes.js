@@ -6,17 +6,16 @@
 
 // let array = [1, 2, 3, true, false];
 //
-// let birthdayObject = {
-//     month: "November",
-//     day: 22,
-//     getDetails: function (){
-//         return this.month + "," + this.day
-//     }
-// }
+let birthdayObject = {
+    month: "November",
+    day: 22,
+    getDetails: function (){
+        return this.month + "," + this.day
+    }
+}
 //
 // let person = {
 //     name: "Jack",
-//     birthday: birthdayObject,
 //     isTall: false
 // };
 
