@@ -1,3 +1,27 @@
 #orange {
     color: orange;
 }
+
+/* 1. Identify the element you want to style */
+/* tag name - will get applied to ALL of that tag*/
+p {
+    color: green;
+}
+
+/* .classValue - apply to all elements with that class name*/
+.purple {
+    color: purple;
+}
+
+/* #idValue - applied to only the element with that unique id value*/
+#banana {
+    color: saddlebrown;
+}
+
+/*SYNTAX*/
+selector {
+/*    apply css styling here */
+    property: value;
+}
+
+
