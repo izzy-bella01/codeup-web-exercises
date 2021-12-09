@@ -6,6 +6,11 @@
 /* tag name - will get applied to ALL of that tag*/
 p {
     color: green;
+    background-color: lavender;
+    border: 4px dotted green;
+    text-decoration: underline;
+    font-size: 24px;
+    font-family: 'Luxurious Script', cursive;
 }
 
 /* .classValue - apply to all elements with that class name*/
@@ -25,3 +30,11 @@ selector {
 }
 
 
+/**/
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style-type: georgian;
+}
