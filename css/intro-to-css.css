@@ -32,9 +32,43 @@ selector {
 
 /**/
 a {
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
-ul li {
-    list-style-type: georgian;
+.animals {
+    border: 3px solid black
 }
+
+ul {
+    border: 1px solid blue;
+    margin: 5px;
+}
+
+ul a {
+    color: magenta;
+}
+
+#unique-ul * {
+    color: lightblue;
+}
+
+#unique-p {
+    color: black;
+    border: none;
+    background-color: lightpink;
+}
+
+#unique-ul a:hover {
+    color: white;
+    background-color: black;
+}
+
+h3 {
+    border: 5px dotted lightpink;
+    border-radius: 15px ;
+}
+
+
+
+
+
