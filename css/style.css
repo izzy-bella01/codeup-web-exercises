@@ -1,4 +1,49 @@
 .fancy-header {
-    color: purple;
+    color: burlywood;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h1, h3 {
+    color: burlywood;
     text-decoration: underline;
 }
+
+body {
+    color: #ece7e5;
+    background-color: rgba(255, 190, 147, 0.31);
+    background-image: url("../image/brown-wood.jpeg");
+    font-family: 'Luxurious Script', cursive;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 20px;
+}
+
+ul li {
+    list-style-type: square;
+}
+
+table, td, tr {
+    padding: 10px;
+    font-size: 22px;
+    border: dotted;
+}
+
+a:link {
+    color: white;
+}
+
+a:hover {
+    background-color: bisque;
+    color: saddlebrown;
+}
+
+a:visited {
+    background-color: black;
+    color: white;
+}
+
+a:active {
+    background-color: darkgrey;
+    color: saddlebrown;
+}
+
