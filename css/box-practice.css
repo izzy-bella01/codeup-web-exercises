@@ -1,0 +1,84 @@
+/*.container {*/
+/*    width: auto;*/
+/*    height: 150px;*/
+/*    border: solid pink 10px;*/
+/*    margin: 20px;*/
+/*    padding: 5px;*/
+/*    background-color: lightgray;*/
+/*}*/
+
+/*.box {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    border: solid black 10px;*/
+/*    margin: 25px;*/
+/*    !*padding: 25px;*!*/
+/*    background-color: lightblue;*/
+/*    border-radius: 100px;*/
+/*    font-weight: bold;*/
+/*    font-size: 20px;*/
+/*}*/
+
+/*#one, #three {*/
+/*    float: right;*/
+/*}*/
+
+/*#two, #four {*/
+/*    float: left;*/
+/*}*/
+
+/*.text1 {*/
+/*    text-align: right;*/
+/*}*/
+/*.text2 {*/
+/*    text-align: left;*/
+/*}*/
+
+/*MINI EXERCISE*/
+
+.container {
+    width: 750px;
+    height: 750px;
+    border: solid pink 10px;
+    margin: 20px;
+    padding: 5px;
+    background-color: lightgray;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: solid black 10px;
+    margin: 25px;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+}
+
+#one {
+    background-color: lightblue;
+    bottom: 15px;
+    right: 10px;
+}
+
+#two {
+    background-color: lightgoldenrodyellow;
+    bottom: 160px;
+    left: 575px;
+}
+
+#three {
+    background-color: lightgreen;
+    top: 300px;
+    right: 10px;
+}
+
+#four {
+    background-color: lavender;
+    top: 150px;
+    left: 575px;
+}
+
+
+
+
