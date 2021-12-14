@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 0;
+            }
+            nav {
+                display: flex;
+                justify-content: space-between;
+                background-color: lightgray;
+            }
+            .nav-section {
+                display: flex;
+                width: 100%;
+            }
+            .nav-section > * {
+                padding: 2px 8px;
+            }
+            .nav-item:hover {
+                background-color: cornflowerblue;
+                cursor: pointer;
+                transition: 250ms;
+            }
+            .nav-item > a {
+                text-decoration: none;
+                color: black;
+            }
+        </style>
+        <nav>
+            <div class="nav-section">
+                <div class="nav-item">Home</div>
+                <div class="nav-item">New</div>
+                <div class="nav-item"><a href="https://codeup.com">Contact</a></div>
+                <div style="flex-grow: 1"> </div>
+                <div class="nav-item">About</div>
+            </div>
+        </nav>
+        <main>
+            <style>
+                .card {
+                    width: 200px;
+                    height: 300px;
+                    border: solid orange 5px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .card img {
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                }
+                .card-footer > img {
+                    width: 60px;
+                }
+                .card-content {
+                    text-align: center;
+                }
+                .card-name {
+                    font-weight: bold;
+                }
+                .card-title {
+                    color: gray;
+                }
+            </style>
+
+            <div class="card">
+                <div class="card-content">
+                    <img src="img/images.jpeg" alt="Rons-Profile-Picture">
+                    <div class="card-name">Mike Wazowski</div>
+                    <div class="card-title">Director</div>
+                    <hr>
+                </div>
+                <div class="card-footer">
+                    <img src="img/github-logo.png" alt="Github-logo">
+                    <img src="img/github-logo.png" alt="Github-logo">
+                    <img src="img/github-logo.png" alt="Github-logo">
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
