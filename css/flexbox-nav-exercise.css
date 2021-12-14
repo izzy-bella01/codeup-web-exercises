@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+.nav-section {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgray;
+}
+.nav-item {
+    align-self: center;
+}
+a {
+    margin: auto;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+}
+a:hover {
+    color: blue;
+}
+#logo {
+    font-size: 3em;
+    padding: .2em 0;
+    font-family: 'Montserrat', sans-serif;
+}
