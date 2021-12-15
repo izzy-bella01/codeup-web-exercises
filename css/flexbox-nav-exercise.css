@@ -13,7 +13,7 @@ body {
 .nav-item {
     align-self: center;
 }
-a {
+div a {
     padding: 0 5px;
     text-decoration: none;
     color: black;
@@ -28,6 +28,12 @@ a:hover {
     padding: .2em 0;
     font-family: 'Montserrat', sans-serif;
 }
+/*#right-side {*/
+/*    margin-left: auto;*/
+/*}*/
+/*#left-side {*/
+/*    margin-right: auto;*/
+/*}*/
 .material-icons {
 
 }
