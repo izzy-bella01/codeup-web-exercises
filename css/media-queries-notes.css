@@ -6,6 +6,10 @@ footer {
 
 }
 
-@media screen and (min-width: 300px) {
+@media screen and (min-width: 300px) /* */ {
+
+}
+
+@media screen and (max-width: 425px) /* max width -- anything smaller than size given*/ {
 
 }
