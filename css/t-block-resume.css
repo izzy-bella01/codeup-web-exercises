@@ -1,0 +1,7 @@
+h1, h2, .para {
+    text-align: center;
+}
+
+#green-border {
+    border-bottom: solid 4px darkolivegreen;
+}

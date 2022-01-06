@@ -1,0 +1,34 @@
+.container {
+    border: 1px solid midnightblue;
+}
+
+.row {
+    border: 1px solid darkslateblue;
+}
+
+.myBorder {
+    border: 1px solid black;
+}
+.red {
+    background-color: #d37373;
+}
+
+.orange {
+    background-color: #d79a59;
+}
+
+.yellow {
+    background-color: #ded878;
+}
+
+.green {
+    background-color: #75cc75;
+}
+
+.blue {
+    background-color: #7294ea;
+}
+
+.purple {
+    background-color: #986aa1;
+}
