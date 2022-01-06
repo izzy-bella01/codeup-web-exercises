@@ -1,7 +1,10 @@
 h1, h2, .para {
     text-align: center;
 }
+h1, h2, h3, h6 {
+    color: #131372;
+}
 
-#green-border {
-    border-bottom: solid 4px darkolivegreen;
+#border {
+    border-bottom: solid 4px #7b7bd0;
 }
