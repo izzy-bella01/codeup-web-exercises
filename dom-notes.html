@@ -8,7 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello, <span id="name"></span></h1>
+    <h1 id="greeting" style="color: blue;">Hello, <span id="name"></span></h1>
+    <p id="weather">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis facilis ipsa ipsam.</p>
+
+
+<!--    RETRIEVING LIST ITEMS(MULTIPLE ELEMENTS)    -->
+    <h1>List One</h1>
+    <ul>
+        <li class="odd list-one-item">List 1, Item 1</li>
+        <li class="even list-one-item">List 1, Item 2</li>
+    </ul>
+    <h1>List Two</h1>
+    <ul>
+        <li class="odd list-two-item">List 2, Item 1</li>
+        <li class="even list-two-item">List 2, Item 2</li>
+    </ul>
+
+<!--   FORM INPUT ELEMENTS  -->
+    <form name="login">
+        <div>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password">
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
 
     <script src="./js/dom-notes.js"></script>
 </body>
