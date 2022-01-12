@@ -33,10 +33,10 @@ var myElements = document.getElementsByClassName("odd");
 console.log(myElements); // RETURNS AN ARRAY
 
 
-// LOOP THROUGH AN ARRAY TO CHANGE EACH ELEMENT RETURNED
-for(var i = 0; i < myElements.length; i++) {
-    myElements[i].innerHTML = "Hello World"
-}
+    // LOOP THROUGH AN ARRAY TO CHANGE EACH ELEMENT RETURNED
+    for(var i = 0; i < myElements.length; i++) {
+        myElements[i].innerHTML = "Hello World"
+    }
 
 // RETRIEVING FORM INPUT ELEMENTS
 var userInput = document.forms.login.username;
