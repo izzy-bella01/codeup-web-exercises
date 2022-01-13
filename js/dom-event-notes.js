@@ -51,20 +51,33 @@ el.addEventListener("click", listener);
 // define what event is being listened for
 // change color of hello world (style.color = "pink")
 
-var helloWorldEl = document.getElementsByTagName("h1");
+var helloWorldEl = document.getElementsByTagName("h1")[0];
 console.log(helloWorldEl[0]);
 
 var btn = document.getElementById("btn");
 console.log(btn);
 
-var listener2 = function () {
+var changePink = function () {
     helloWorldEl.style.color = "pink";
 }
 
-btn.addEventListener("click", listener2);
+btn.addEventListener("click", changePink);
 
 // DARK MODE
 
 document.getElementById("dark-mode").addEventListener("click", function() {
     document.getElementsByTagName("body")[0].style.backgroundColor = "black";
 })
+
+
+// REMOVE EVENT LISTENER
+
+var h2 = document.getElementById("change-me");
+
+var changeTextSize = function() {
+    h2.style.color = "red";
+}
+
+h2.addEventListener("mouseover", changeTextSize);
+
+// h2.removeEventListener("mouseover", changeTextSize);
