@@ -1,3 +1,4 @@
+"use strict";
 //  JS REVIEW
 
 // OBJECTS
@@ -116,3 +117,48 @@
 //         console.log("nope, team doesn't start with the letter R");
 //     }
 // })
+
+// console.log(10 % 3);
+//
+// var i = 0;
+// while (i <= 10) {
+//     console.log(i);
+//     i++;
+// }
+//
+// for(var i = 0; i <= 10; i++) {
+//     console.log(i);
+// }
+
+// console.log(!!true);
+
+// var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
+
+// console.log(array[array.length - 2]);
+
+var array = ['John', 'Paul', 'George', 'Ringo'];
+array.splice(array.indexOf('Ringo'), 0, 'Yoko');
+console.log(array);
+
+
+
+var i = 10;
+while(i < 10) {
+    console.log(i);
+}
+var band = {
+    instrument: 'flute',
+    shred: function() {
+        console.log('RAAAAAAAAAA!!!!');
+    }
+}
+band.shred();
+
+// band.shred = function() {
+//     console.log('RAAAAAAAAAA!!!!');
+// }
+
+
+
+
+
