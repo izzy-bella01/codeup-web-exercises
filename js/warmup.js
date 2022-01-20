@@ -163,20 +163,20 @@
 // ...
 
 function checkString(string) {
-    var char = '';
+    // var char = '';
     for(var i = 0; i <= string.length; i++) {
-        char = string[i];
-        if (string[i] === char.toLowerCase()) {
+        var char = string[i];
+        if(!isNaN(string[i])){
+            console.log(string[i] + " is not a letter");
+        } else if (string[i] === char.toLowerCase()) {
             console.log(string[i] + " is lowercase");
         } else if (string[i] === char.toUpperCase()) {
             console.log(string[i] + " is uppercase");
-        } else {
-            console.log(string[i] + " is not a letter");
         }
     }
 }
 
-console.log(checkString('beLLa'));
+console.log(checkString('beLLa1'));
 
 // var strings = 'this iS a TeSt 523 Now!';
 // var i=0;
@@ -184,13 +184,13 @@ console.log(checkString('beLLa'));
 // while (i <= strings.length){
 //     character = strings.charAt(i);
 //     if (!isNaN(character * 1)){
-//         alert('character is numeric');
+//         console.log('character is numeric');
 //     }else{
-//         if (character == character.toUpperCase()) {
-//             alert ('upper case true');
+//         if (character === character.toUpperCase()) {
+//             console.log('upper case true');
 //         }
-//         if (character == character.toLowerCase()){
-//             alert ('lower case true');
+//         if (character === character.toLowerCase()){
+//             console.log('lower case true');
 //         }
 //     }
 //     i++;
