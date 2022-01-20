@@ -6,15 +6,18 @@
     </head>
     <body>
         <h1 class="heading" id="header">Hey There!</h1>
-        <p id="para">This is a paragraph tag</p>
+        <p class="codeup" id="para">This is a paragraph tag</p>
         <ul>
             <li>Apples</li>
             <li>Oranges</li>
             <li>Bananas</li>
             <li>Kiwis</li>
         </ul>
-        <div class="hello" id="random">
+        <div class="codeup" id="random">
             Random div here
+        </div>
+        <div>
+            Random div 2 here
         </div>
 
         <script src="./js/jquery-2.2.4.js"></script>
@@ -23,13 +26,7 @@
                 alert( 'The DOM has finished loading!' );
             });
 
-            $("#para").ready(function() {
-                alert('The contents of this alert is a p tag with id="para"');
-            });
-
-            $("#header").ready(function() {
-                alert('The contents of this alert is a h1 tag with the id="header"');
-            });
+            $(".codeup").css("border", "solid 1px red");
         </script>
     </body>
 </html>
