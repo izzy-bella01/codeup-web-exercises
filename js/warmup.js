@@ -145,7 +145,53 @@
 
 // Make a program that filters through this array: ["Ryan", "Kieran", "Jason", "Mary", "Jo", "Jake"] and returns a new array that contains only those whose name have only 4 letters in them.
 
-var names = ["Ryan", "Kieran", "Jason", "Mary", "Jo", "Jake"];
+// var names = ["Ryan", "Kieran", "Jason", "Mary", "Jo", "Jake"];
+//
+// var newNames = names.filter(name => name.length === 4)
+// console.log(newNames);
 
-var newNames = names.filter(name => name.length === 4)
-console.log(newNames);
+// WARMUP FOR 01-20-2022
+
+// write a function that accepts a string and checks whether each character in the string is upperCase or lowerCase and returns "letter  [insert letter] is uppercase/lowercase", accordingly.  Bonus: return "is not a character" if it's not a letter
+//
+// input example: "bJI*ENsd4fRAIR5VIrsRFA-ijgRar"
+// output example:
+// b is lowercase
+// J is uppercase
+// I is uppercase
+// * is not a letter
+// ...
+
+function checkString(string) {
+    var char = '';
+    for(var i = 0; i <= string.length; i++) {
+        char = string[i];
+        if (string[i] === char.toLowerCase()) {
+            console.log(string[i] + " is lowercase");
+        } else if (string[i] === char.toUpperCase()) {
+            console.log(string[i] + " is uppercase");
+        } else {
+            console.log(string[i] + " is not a letter");
+        }
+    }
+}
+
+console.log(checkString('beLLa'));
+
+// var strings = 'this iS a TeSt 523 Now!';
+// var i=0;
+// var character='';
+// while (i <= strings.length){
+//     character = strings.charAt(i);
+//     if (!isNaN(character * 1)){
+//         alert('character is numeric');
+//     }else{
+//         if (character == character.toUpperCase()) {
+//             alert ('upper case true');
+//         }
+//         if (character == character.toLowerCase()){
+//             alert ('lower case true');
+//         }
+//     }
+//     i++;
+// }
