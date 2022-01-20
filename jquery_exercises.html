@@ -26,7 +26,17 @@
                 alert( 'The DOM has finished loading!' );
             });
 
-            $(".codeup").css("border", "solid 1px red");
+            $("li").css("font-size", "20px");
+
+            $("h1").css("background-color", "yellow");
+
+            $("p").css("background-color", "yellow");
+
+            $("li").css("background-color", "yellow");
+
+            $("h1").ready(function() {
+                alert("This is the contents of the h1");
+            })
         </script>
     </body>
 </html>
