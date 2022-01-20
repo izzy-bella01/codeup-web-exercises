@@ -6,12 +6,13 @@
     </head>
     <body>
         <h1 class="heading" id="header">Hey There!</h1>
-        <p class="codeup" id="para">This is a paragraph tag</p>
+        <p class="codeup" id="para">This is a paragraph tag with a class and id</p>
+        <p>This is a paragraph tag WITHOUT a class or id</p>
         <ul>
-            <li>Apples</li>
-            <li>Oranges</li>
-            <li>Bananas</li>
-            <li>Kiwis</li>
+            <li class="li-hover">Apples</li>
+            <li class="li-hover">Oranges</li>
+            <li class="li-hover">Bananas</li>
+            <li class="li-hover">Kiwis</li>
         </ul>
         <div class="codeup" id="random">
             Random div here
@@ -22,18 +23,21 @@
 
         <script src="./js/jquery-2.2.4.js"></script>
         <script>
-            $(document).ready(function() {
-                alert( 'The DOM has finished loading!' );
-            });
+
+            // INTRO EXERCISE
+
+            // $(document).ready(function() {
+            //     alert( 'The DOM has finished loading!' );
+            // });
+
+            // SELECTORS EXERCISE
 
             // PART ONE
-            // $("#para").ready(function() {
-            //     alert('The contents of this alert is a p tag with id="para"');
-            // });
+            // var paragraph = $('#para').text();
+            // alert("Paragraph text: " + paragraph);
             //
-            // $("#header").ready(function() {
-            //     alert('The contents of this alert is a h1 tag with the id="header"');
-            // });
+            // var head = $("#header").text();
+            // alert("Header text: " + head);
 
             // PART TWO
             //$(".codeup").css("border", "solid 1px red");
@@ -47,18 +51,40 @@
             //
             // $("li").css("background-color", "yellow");
             //
-            // $("h1").ready(function() {
-            //     alert("This is the contents of the h1");
-            // })
+            // var h1Contents = $("h1").text();
+            // alert("h1 text: " + h1Contents);
 
             // PART FOUR
-            $("li").css("font-size", "20px");
+            // $("li").css("font-size", "20px");
+            //
+            // $("h1, p, li").css("background-color", "yellow");
+            //
+            // var h1Contents = $("h1").text();
+            // alert("h1 text: " + h1Contents);
 
-            $("h1, p, li").css("background-color", "yellow");
 
-            $("h1").ready(function() {
-                alert("This is the contents of the h1");
-            })
+            // MOUSE EVENTS EXERCISE
+
+            $("#header").click(
+                function () {
+                    $(this).css("background-color", "pink");
+                }
+            );
+
+            $("p").dblclick(
+                function() {
+                   $(this).css("font-size", "18px");
+                }
+            );
+
+            $(".li-hover").hover(
+                function() {
+                    $(this).css("color", "red");
+                },
+                function() {
+                    $(this).css("color", "lavender"); // tested different color to see difference
+                }
+            );
         </script>
     </body>
 </html>
