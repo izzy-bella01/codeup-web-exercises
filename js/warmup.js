@@ -163,20 +163,20 @@
 // ...
 
 function checkString(string) {
-    // var char = '';
+    var char = '';
     for(var i = 0; i <= string.length; i++) {
-        var char = string[i];
-        if(!isNaN(string[i])){
+        // var char = string[i];
+        if(!string[i].match(/[A-Za-z)]/i)){
             console.log(string[i] + " is not a letter");
-        } else if (string[i] === char.toLowerCase()) {
+        } else if (string[i] === string[i].toLowerCase()) {
             console.log(string[i] + " is lowercase");
-        } else if (string[i] === char.toUpperCase()) {
+        } else if (string[i] === string[i].toUpperCase()) {
             console.log(string[i] + " is uppercase");
         }
     }
 }
 
-console.log(checkString('beLLa1'));
+console.log(checkString('beLLa1&^8hey/'));
 
 // var strings = 'this iS a TeSt 523 Now!';
 // var i=0;

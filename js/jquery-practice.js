@@ -6,7 +6,7 @@
 $("th, td").css("border", "solid 2px black");
 
 // 2. remove all bullet points from the unordered list items
-$("li").css("list-style-type", "none");
+$("ul li").css("list-style-type", "none");
 
 // 3. change the font family of the entire page to luxurious roman
 // ---> <link rel=“preconnect” href=“https://fonts.googleapis.com”>
