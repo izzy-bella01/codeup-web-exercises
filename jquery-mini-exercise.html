@@ -11,12 +11,12 @@
         $(document).ready(function() {
             "use strict";
 
-            $(document).keyup(function(e){
+            $(document).on("keydown", function(e){
                 console.log(e.keyCode);
             });
 
             // TODO: when the user types the letter 'a', pop up an alert that says "Welcome!"
-            $(document).keydown(function(e) {
+            $(document).on("keydown", function(e) {
                 if (e.keyCode === 65) {
                     alert("Welcome!");
                 }
@@ -24,7 +24,7 @@
 
             // TODO: when the user types the letter 'c', pop up a confirm that says "Logout?"
 
-            $(document).keydown(function(e) {
+            $(document).on("keydown", function(e) {
                 if (e.keyCode === 67) {
                     confirm("Logout?");
                 }
@@ -38,6 +38,17 @@
                 }
             });
 
+            // OR
+
+            // $(document).on("keydown", function(e){
+            //     if (e.key === "a") {
+            //         alert("Welcome!");
+            //     } else if (e.key === "c") {
+            //         confirm("Logout?");;
+            //     } else if (e.key === "p") {
+            //         prompt("Please enter your name: ");
+            //     }
+            // });
 
         });
     </script>
