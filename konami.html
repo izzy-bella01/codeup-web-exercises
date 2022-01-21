@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="./css/bootstrap-notes.css">
         <title>Konami Code</title>
     </head>
     <body>
-    <h1>Konami Code</h1>
+    <h1 class="text-center">Konami Code</h1>
+    <div class="text-center">
+        <h2>How to play?</h2>
+        <p>Enter the correct sequence... hint(up, up, down, down, left, right, left, right, b, a)</p>
+
+        <img src="./img/puppy-unicorn-gif.webp" alt="puppy unicorn gif">
+        <p>^ <br> This serves no purpose...  I just think it's cute:)</p>
+    </div>
+
 
     <script src="/js/jquery-2.2.4.js"></script>
     <script>
@@ -27,14 +42,15 @@
 
         $(document).keydown(
             function(e) {
-                var key = konamiKeys[e.keyCode];
+                var enteredKey = konamiKeys[e.keyCode];
                 var requiredKey = konamiCode[konamiPosition];
 
-                if(key === requiredKey) {
+                if(enteredKey === requiredKey) {
                     konamiPosition++;
 
                     if(konamiPosition === konamiCode.length) {
                         alert("You have added 30 lives!");
+                        $("*").css("background-color", "pink");
                         konamiPosition = 0;
                     }
                 } else {
@@ -42,6 +58,7 @@
                 }
             }
         );
+
     </script>
     </body>
 </html>
