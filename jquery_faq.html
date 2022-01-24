@@ -8,7 +8,13 @@
                 visibility: hidden;
             }
             .highlight {
-                background-color: pink;
+                background-color: palegoldenrod;
+            }
+            .bold {
+                font-weight: bold;
+            }
+            .blue {
+                color: cornflowerblue;
             }
         </style>
     </head>
@@ -63,16 +69,58 @@
         <br>
     </dl>
 
+    <!--        PART TWO OF EXERCISE       -->
+
+
+    <button id="facts">Click to highlight last item in each list</button>
+    <ul id="list-1">
+        <h3>Great Smoky Mountains National Park</h3>
+        <li>Great Smoky Mountains National Park was established in 1934.</li>
+        <li>Great Smoky Mountains National Park runs through Tennessee and North Carolina.</li>
+        <li>The park consists of 522,419 acres. </li>
+        <li>Sixteen mountains inside the park reach higher than 6,000 feet.</li>
+    </ul>
+    <ul id="list-2">
+        <h3>Yellowstone National Park</h3>
+        <li>Yellowstone encompasses 3,472 square miles (2,221,766 acres) which makes it larger than Rhode Island and Delaware combined.</li>
+        <li>There are more than 10,000 hydrothermal features in Yellowstone. The four types of thermal features are geysers, hot springs, mud pots, and fumaroles.</li>
+        <li>Yellowstone is home to the largest concentration of mammals in the lower 48 states (67 species).</li>
+        <li>About 290 waterfalls can be found throughout Yellowstone’s 2.2 million acres.</li>
+    </ul>
+    <ul id="list-3">
+        <h3>Rocky Mountain National Park</h3>
+        <li>On January 26, 1915, Rocky Mountain National Park was established</li>
+        <li>Rocky Mountain is one of the nation’s highest national parks, with elevations from 7,860 feet to 14,259 feet. </li>
+        <li>Nearly 250,000 acres of Rocky Mountain was designated as wilderness by Congress in 2009</li>
+        <li>The park is home to more than 60 species of mammals, including elk, bighorn sheep and moose.</li>
+    </ul>
 
     <script src="./js/jquery-2.2.4.js"></script>
     <script>
-    $("#faq").click(function() {
-        $("dd").toggleClass("invisible");
-    });
 
-    $("dt").click(function() {
-        $(this).toggleClass("highlight");
-    });
+        $("#faq").click(function() {
+            $("dd").toggleClass("invisible");
+        });
+
+        $("dt").click(function() {
+            $(this).toggleClass("highlight");
+        });
+
+    // <!--        PART TWO OF EXERCISE       -->
+
+        $("#facts").click(function() {
+            $("#list-1").children().last().toggleClass("highlight");
+            $("#list-2").children().last().toggleClass("highlight");
+            $("#list-3").children().last().toggleClass("highlight");
+        });
+
+        $("h3").click(function() {
+            $("ul").children().toggleClass("bold");
+        });
+
+        $("li").click(function() {
+            $("ul").children().toggleClass("blue");
+        });
 
     </script>
     </body>
