@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FAQ</title>
+        <style>
+            .invisible {
+                visibility: hidden;
+            }
+            .highlight {
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+
+    <p>National Park FAQ's: </p>
+    <button id="faq">Click to reveal answers</button>
+
+    <dl>
+        <dt>How many national parks are there in total in the United States?</dt>
+        <dd class="invisible">There are currently 63 national parks in the United States.</dd>
+        <br>
+
+        <dt>How many people come to visit each year?</dt>
+        <dd class="invisible">Last year there were 327 million national park visits in the United States.</dd>
+        <br>
+
+        <dt>Are there guided tours available?</dt>
+        <dd class="invisible">Yes, each national park offers guided tours that can either be hosted by the National Park Service or by certified guides.</dd>
+        <br>
+
+        <dt>Where can I find a map of all parks and specific parks?</dt>
+        <dd class="invisible">Many national parks have the official park map for downloads.</dd>
+        <br>
+
+        <dt>How do I make reservations for camping or staying in national parks?</dt>
+        <dd class="invisible">Most campsites and national parks are first come first serve basis. If able to make reservations, it's recommended to do so 3-5 months in advance.</dd>
+        <br>
+
+        <dt>When were the national parks established and why?</dt>
+        <dd class="invisible">The National Park Service was established by Congress and initiated by President Theodore Roosevelt during the year 1916 as an opportunity for the American people to enjoy public lands and provide access to its citizens enjoying a national park for recreational purposes.</dd>
+        <br>
+
+        <dt>Who is in charge of the national parks?</dt>
+        <dd class="invisible">All national parks in the United States are managed and and supervised by the National Park Service. The park rangers inside the park operate as federal law enforcement.</dd>
+        <br>
+
+        <dt>Are there general rules when visiting a national park or does each park have specific ones?</dt>
+        <dd class="invisible">The general rules for each park can be found on the National Park Service website. Each park may change and adjust rules seasonally based on certain conditions.</dd>
+        <br>
+
+        <dt>What is the most-visited national park? </dt>
+        <dd class="invisible">(As of 2020) <br>
+            1. Great Smoky Mountains National Park <br>
+            2. Yellowstone National Park <br>
+            3. Zion National Park
+        </dd>
+        <br>
+
+        <dt>Can I bring my pet to a national park?</dt>
+        <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. Service dogs are legally welcomed wherever visitors can go.</dd>
+        <br>
+    </dl>
+
+
+    <script src="./js/jquery-2.2.4.js"></script>
+    <script>
+    $("#faq").click(function() {
+        $("dd").toggleClass("invisible");
+    });
+
+    $("dt").click(function() {
+        $(this).toggleClass("highlight");
+    });
+
+    </script>
+    </body>
+</html>
