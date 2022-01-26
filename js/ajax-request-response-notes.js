@@ -116,19 +116,19 @@
 
                 // handles fail if applicable
 
-            $.ajax("https://dog.ceo/api/breeds/image/random") // sends get request
-                .fail(function() {
-                    $("h2").html("sorry, no doggos:(");
-                    // console.log("no doggos:("); // request failed
-                })
-
-                .always(function() {
-                    $("h3").html("thanks for visiting!");
-                })
-                .done(function(data) {
-                    $("h2").html("here's a doggo!:)");
-                    $("#doggo").attr("src", data.message);
-                });
+            // $.ajax("https://dog.ceo/api/breeds/image/random") // sends get request
+            //     .fail(function() {
+            //         $("h2").html("sorry, no doggos:(");
+            //         // console.log("no doggos:("); // request failed
+            //     })
+            //
+            //     .always(function() {
+            //         $("h3").html("thanks for visiting!");
+            //     })
+            //     .done(function(data) {
+            //         $("h2").html("here's a doggo!:)");
+            //         $("#doggo").attr("src", data.message);
+            //     });
 
             // .DONE --> TRIGGERS CALLBACK FUNCTION ONLY IF SUCCESSFUL
             // .FAIL --> TRIGGERS CALLBACK FUNCTION ONLY IF FAIL
@@ -136,30 +136,67 @@
 
 
         // post request
-            $.ajax("https://dog.ceo/api/breeds/image/random", {
-                type: "POST",
-                data: {
-                    message: "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=67773a9d419786091c958b2ad08eae5e"
-                }
-            })
-            .done(function() {
-                console.log("request successful");
-            })
-            .fail(function() {
-                console.log("request failed");
-            })
-            .always(function() {
-                console.log("request was made");
-            });
+        //     $.ajax("https://dog.ceo/api/breeds/image/random", {
+        //         type: "POST",
+        //         data: {
+        //             message: "https://i.guim.co.uk/img/media/fe1e34da640c5c56ed16f76ce6f994fa9343d09d/0_174_3408_2046/master/3408.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=67773a9d419786091c958b2ad08eae5e"
+        //         }
+        //     })
+        //     .done(function() {
+        //         console.log("request successful");
+        //     })
+        //     .fail(function() {
+        //         console.log("request failed");
+        //     })
+        //     .always(function() {
+        //         console.log("request was made");
+        //     });
 
         // get
-        $.get("")
-        $.ajax("url")
+        // $.get("")
+        // $.ajax("url")
+        //
+        // // post
+        // $.post("")
+        // $.ajax("url", options)
 
-        // post
-        $.post("")
-        $.ajax("url", options)
+// MORE AJAX
 
+// -- posts https://jsonplaceholder.typicode.com/comments
+// - GET the url - using an AJAX request
+// - loop through an array of data
+// - forEach - failing
+// - jQuery .each()
+// - while, do while, switch, for loop, .map()
+// - get the names of the comments
+// - .done() method -- to capture the data when it's returned
+// - append element
+// - select/find the element
+// - create an element
+
+$.get("https://jsonplaceholder.typicode.com/comments")
+    .done(function (data) {
+        console.log(data); // --> confirm if its an object or an array
+        // HERE WE HAVE ACCESS TO THE DATA RETURNED
+
+        // loop through data returned (which ik is an array from console logging it)
+        $.each(data, function(i, comment) {
+            console.log(comment.name); // ✅
+            let newEl = `<h1> ${comment.name} </h1>`;
+            // select element we're appending to
+            // append going to add whatever we pass in as a child
+            // elements to the element selected
+            $(".container").append(newEl);
+
+            // MORE SECURE
+            //     let newEl = document.createElement("h1");
+            //     let name = comment.name;
+            //     newEl.innerHTML = name;
+            //     $(".container").append(newEl);
+
+
+        })
+    });
 
 
 
