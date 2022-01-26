@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajax Blog</title>
+    </head>
+    <body>
+        <div id="posts">
+
+        </div>
+        <script src="./js/jquery-2.2.4.js"></script>
+        <script>
+            $.ajax("./js/data/blog.json")
+                .done(function (data) {
+                    $.each(data, function(i, post) {
+                        console.log(data);
+                        let newElTitle = document.createElement("h1");
+                        let newElContent = document.createElement("p");
+                        let newElCategories = document.createElement("h4");
+                        let newElDate = document.createElement("h4");
+
+                        let title = post.title;
+                        let content = post.content;
+                        let categories = post.categories;
+                        let date = post.date;
+
+                        newElTitle.innerHTML = title;
+                        newElContent.innerHTML = content;
+                        newElCategories.innerHTML = categories;
+                        newElDate.innerHTML = date;
+
+                        $("#posts").append(newElTitle);
+                        $("#posts").append(newElDate);
+                        $("#posts").append(newElCategories);
+                        $("#posts").append(newElContent);
+
+
+                    })
+                })
+        </script>
+    </body>
+</html>
