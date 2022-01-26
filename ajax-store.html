@@ -24,7 +24,7 @@
             </thead>
             <tbody id="insertProducts"></tbody>
         </table>
-        <button class="btn btn-primary" id="refresh">Refresh</button>
+        <button class="btn btn-primary" id="refresh">Load Items</button>
     </div>
 
 
@@ -40,6 +40,7 @@
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
+
         $("#refresh").one('click', function () {
             $.ajax("./js/data/inventory.json")
                 .done(function(data) {
