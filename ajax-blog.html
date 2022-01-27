@@ -8,6 +8,18 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <title>Ajax Blog</title>
+        <style>
+            body {
+                background-color: #fae8d9;
+            }
+            h1 {
+                color: #3B94D9;
+                border-bottom: dotted 2px black;
+            }
+            h4 {
+                color: #1c4565;
+            }
+        </style>
     </head>
     <body>
         <div class="container" id="posts">
@@ -38,8 +50,6 @@
                         $("#posts").append(newElDate);
                         $("#posts").append(newElCategories);
                         $("#posts").append(newElContent);
-
-
                     })
                 })
         </script>
