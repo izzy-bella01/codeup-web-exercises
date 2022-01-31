@@ -1,1 +1,2 @@
 const MAPBOX_TOKEN = "pk.eyJ1IjoiaXp6eWJlbGxhMDEiLCJhIjoiY2t5eGhjMGxuMDBmMTJubnhsa2tqbTNlaSJ9.HycDxPb11Aym9ZYGLM18rQ";
+const WEATHER_MAP_TOKEN = "43e6dc66e82b71bee25ccebe609a8295";
