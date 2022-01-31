@@ -21,21 +21,23 @@
     <!-- The HTML element that serves as the Mapbox container -->
     <div class="my-class" id='map'></div>
 
+    <!-- TOKENS.js -->
+    <script src="./js/TOKENS.js"></script>
+
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
     <!-- Mapbox Geocoder Util Methods -->
     <script src="./js/mapbox-geocoder-utils.js"></script>
 
-    <script src="./js/TOKENS.js"></script>
     <!-- Custom JS -->
     <script>
-        mapboxgl.accessToken = "pk.eyJ1IjoiaXp6eWJlbGxhMDEiLCJhIjoiY2t5eGhjMGxuMDBmMTJubnhsa2tqbTNlaSJ9.HycDxPb11Aym9ZYGLM18rQ"; //{MAPBOX_TOKEN}
+        mapboxgl.accessToken = MAPBOX_TOKEN;
         var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 10,
-            center: [-98.4916, 29.4252]
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v9', // style URL
+            zoom: 10, // starting zoom
+            center: [-98.4916, 29.4252] // starting position [lng, lat]
         });
 
         // Create a new marker
