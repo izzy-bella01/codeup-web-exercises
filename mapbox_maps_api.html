@@ -33,9 +33,13 @@
         var map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v9', // style URL
-            zoom: 15, // starting zoom
-            center: [-98.60379791259766,29.610078811645508,] // starting position [lng, lat]
+            zoom: 16.5, // starting zoom
+            center: [-98.60130882263184, 29.608474428254272] // starting position [lng, lat]
         });
+
+        const marker = new mapboxgl.Marker()
+            .setLngLat([-98.60130882263184, 29.608474428254272])
+            .addTo(map);
 
     </script>
     </body>
