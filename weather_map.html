@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+<!--        &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">-->
+        <title>Weather Map Project</title>
+    </head>
+    <body>
+    <h1>Weather Map Project</h1>
+    <div class="container"></div>
+
+
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>-->
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="js/keys.js"></script>
+    <script>
+        $.get("https://api.openweathermap.org/data/2.5/forecast", {
+            APPID: WEATHER_MAP_TOKEN,
+            q:     "San Antonio, US",
+            units: "imperial"
+        })
+        .done(function(weather) {
+            console.log(weather);
+            for(var i = 0; i < 40; i++) {
+                $(".container").append(
+                    `<p>Date: ${weather.list[i].dt_txt}</p>
+                    <p>Temp min & max: ${weather.list[i].main.temp_min}/${weather.list[i].main.temp_max}</p>
+                    <p>Description: ${weather.list[i].weather[0].description}</p>
+                    <p>Humidity: ${weather.list[i].main.humidity}</p>
+                    <p>Wind: ${weather.list[i].wind.speed}</p>
+                    <p>Pressure: ${weather.list[i].main.pressure}</p>`)
+            }
+        })
+
+    </script>
+    </body>
+</html>
