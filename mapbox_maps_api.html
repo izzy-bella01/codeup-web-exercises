@@ -24,8 +24,8 @@
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
-    <!-- TOKENS.js -->
-    <script src="./js/TOKENS.js"></script>
+    <!-- keys.js -->
+    <script src="js/keys.js"></script>
 
     <!-- Mapbox Geocoder Util Methods -->
     <script src="./js/mapbox-geocoder-utils.js"></script>
@@ -61,17 +61,20 @@
                 name: "Maggiano's Little Italy",
                 food: "Italian",
                 price: "$$",
-                coordinates: [-98.60130882263184, 29.608474428254272]
+                coordinates: [-98.60130882263184, 29.608474428254272],
+                favDish: "Chicken Marsala"
             }, {
                 name: "54th Street Grill & Bar",
                 food: "American",
                 price: "$$",
-                coordinates: [-98.44802642841736, 29.654662720832196]
+                coordinates: [-98.44802642841736, 29.654662720832196],
+                favDish: "Fried Pickles & Southwest Tortilla Wrap"
             }, {
                 name: "Snooze A.M. Eatery",
                 food: "Breakfast/Brunch",
                 price: "$$",
-                coordinates: [-98.57780701508423, 29.54624035159028]
+                coordinates: [-98.57780701508423, 29.54624035159028],
+                favDish: "Signature Flight(Pineapple Upside Down, Blueberry Danish & Sweet Potato pancakes)"
             }
         ]
         console.log(restaurants);
@@ -82,7 +85,7 @@
                 .setPopup(
                     new mapboxgl.Popup() // add popups
                         .setHTML(
-                            `<h3>${restaurant.name}</h3><p>${restaurant.food}</p><p>${restaurant.price}</p>`
+                            `<h3>${restaurant.name}</h3><p>${restaurant.food}</p><p>Fan Favorites: ${restaurant.favDish}</p><p>${restaurant.price}</p>`
                         )
                 )
                 .addTo(map);
