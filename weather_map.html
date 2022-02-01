@@ -30,7 +30,7 @@
 
 
                                             <!--BOOTSTRAP-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <script src="js/jquery-2.2.4.js"></script>
@@ -48,7 +48,7 @@
         })
         .done(function(weather) {
             console.log(weather);
-            // THIS LOOP RUNS THROUGH THE WEATHER DATA OBJECT TO GET SPECIFIC INFORMATION NEEDED
+            // THIS LOOP RUNS THROUGH THE WEATHER DATA OBJECT TO GET SPECIFIC INFORMATION NEEDED FOR 5 DAYS
             for(var i = 0; i < 5; i++) {
                 // NEEDED TO CONVERT UNIX DATE TO HUMAN READABLE DATE
                 var unixMilli = ((weather.daily[i].dt)*1000);
@@ -93,10 +93,156 @@
             center: [-98.4916, 29.4252] // starting position [lng, lat]
         });
 
-        const marker = new mapboxgl.Marker()
+        // CREATING DEFAULT MARKER IN SAN ANTONIO
+        const marker = new mapboxgl.Marker({
+            draggable: true
+        })
             .setLngLat([-98.4916, 29.4252])
             .addTo(map);
 
+        // FUNCTION FOR DRAGGING MARKER
+        function onDragEnd() {
+            // CREATED VALUE TO GET MARKER LONGITUDE AND LATITUDE
+            const lngLat = marker.getLngLat();
+            // CONSOLE LOG TO ENSURE VALUES WERE CORRECTLY GRABBED
+            console.log(`Lat: ${lngLat.lat} Lng: ${lngLat.lng}`);
+            console.log(lngLat);
+
+            // GETTING LOCATION AND COORDINATES OF MARKER PLACED WHEN DRAGGED
+            $.get("https://api.openweathermap.org/geo/1.0/reverse", {
+                APPID: WEATHER_MAP_TOKEN,
+                // PLUGGING IN COORDINATES GRABBED FROM DRAGGED LOCATION
+                lat: lngLat.lat,
+                lon: lngLat.lng
+            })
+            .done(
+                function(newData) {
+                    console.log(newData);
+                    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                        // ONE CALL GETS DATA FOR A 7 DAY FORECAST
+                        APPID: WEATHER_MAP_TOKEN,
+                        lat:    lngLat.lat,
+                        lon:   lngLat.lng,
+                        units: "imperial"
+                    })
+                    .done(function(weather) {
+                        console.log(weather);
+                        // THIS LOOP RUNS THROUGH THE WEATHER DATA OBJECT TO GET SPECIFIC INFORMATION NEEDED FOR 5 DAYS
+                        // 2nd time around this clears previous html
+                        $("#forecast").html('')
+                        for(var i = 0; i < 5; i++) {
+                            // NEEDED TO CONVERT UNIX DATE TO HUMAN READABLE DATE
+                            var unixMilli = ((weather.daily[i].dt)*1000);
+                            var dateObject = new Date(unixMilli);
+                            var date = dateObject.toLocaleDateString();
+                            // VARIABLE CREATED TO USE IN APPEND
+                            var tempMin = Math.round(weather.daily[i].temp.min);
+                            var tempMax = Math.round(weather.daily[i].temp.max);
+                            var description = weather.daily[i].weather[0].description;
+                            var humidity = Math.round(weather.daily[i].humidity);
+                            var wind = Math.round(weather.daily[i].wind_speed);
+                            var pressure = Math.round(weather.daily[i].pressure);
+                            // VARIABLES FOR GRABBING WEATHER ICON
+                            var iconCode = weather.daily[i].weather[0].icon;
+                            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                            // APPENDING WEATHER DATA VARIABLES TO HTML USING TEMPLATE LITERALS
+                            $("#forecast").append(
+                                `<div class="card m-2 card-style">
+                                    <h6 class="card-header text-center">${date}</h6>
+                                    <div class="card-body">
+                                        <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                                        <div class="text-center">
+                                            <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
+                                        </div>
+                                        <hr>
+                                        <p>Description: <strong>${description}</strong></p>
+                                        <p>Humidity: <strong>${humidity}%</strong></p>
+                                        <p>Wind: <strong>${wind} mph</strong></p>
+                                        <p>Pressure: <strong>${pressure} hPa</strong></p>
+                                    </div>
+                                </div>
+                            `)
+                        }
+                    })
+                }
+            )
+        }
+        // CREATED LISTENER FOR WHEN MARKER IS DRAGGED, WHEN DRAG ENDS, RUN FUNCTION TO GET COORDINATES OF MARKER
+        marker.on('dragend', onDragEnd);
+
+        // FUNCTION FOR ADDING NEW MARKER
+        function addMarker(e) {
+            // SET VARIABLE (coordinates) FOR LONGITUDE AND LATITUDE OF MARKER PLACED
+            // HOW DOES e.lngLat WORK???
+            // e.lngLat is longitude latitude geographical position of event (aka click)
+            // WHEN CLICKED, GRABBING GEOGRAPHICAL POSITION (coordinates) OF EVENT (click)
+            var coordinates = e.lngLat;
+            // CONSOLE LOG TO ENSURE COORDINATES WERE CORRECTLY GRABBED
+            console.log(`Lat: ${coordinates.lat} Lng: ${coordinates.lng}`);
+            // SETTING COORDINATES OF WERE MARKER WAS PLACED TO THE MAP
+            marker.setLngLat(coordinates).addTo(map);
+
+            // GETTING LOCATION AND COORDINATES OF MARKER PLACED WHEN CLICK
+            $.get("https://api.openweathermap.org/geo/1.0/reverse", {
+                APPID: WEATHER_MAP_TOKEN,
+                lat: coordinates.lat,
+                lon: coordinates.lng
+            })
+            .done(
+                function(newData) {
+                    console.log(newData);
+                    // ??? take coordinates from newData and plug into weather map api
+                    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                        // ONE CALL GETS DATA FOR A 7 DAY FORECAST
+                        APPID: WEATHER_MAP_TOKEN,
+                        lat:    coordinates.lat,
+                        lon:   coordinates.lng,
+                        units: "imperial"
+                    })
+                    .done(function(weather) {
+                        console.log(weather);
+                        // THIS LOOP RUNS THROUGH THE WEATHER DATA OBJECT TO GET SPECIFIC INFORMATION NEEDED FOR 5 DAYS
+                        // 2nd time around this clears previous html
+                        $("#forecast").html('')
+                        for(var i = 0; i < 5; i++) {
+                            // NEEDED TO CONVERT UNIX DATE TO HUMAN READABLE DATE
+                            var unixMilli = ((weather.daily[i].dt)*1000);
+                            var dateObject = new Date(unixMilli);
+                            var date = dateObject.toLocaleDateString();
+                            // VARIABLE CREATED TO USE IN APPEND
+                            var tempMin = Math.round(weather.daily[i].temp.min);
+                            var tempMax = Math.round(weather.daily[i].temp.max);
+                            var description = weather.daily[i].weather[0].description;
+                            var humidity = Math.round(weather.daily[i].humidity);
+                            var wind = Math.round(weather.daily[i].wind_speed);
+                            var pressure = Math.round(weather.daily[i].pressure);
+                            // VARIABLES FOR GRABBING WEATHER ICON
+                            var iconCode = weather.daily[i].weather[0].icon;
+                            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                            // APPENDING WEATHER DATA VARIABLES TO HTML USING TEMPLATE LITERALS
+                            $("#forecast").append(
+                                `<div class="card m-2 card-style">
+                                    <h6 class="card-header text-center">${date}</h6>
+                                    <div class="card-body">
+                                        <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                                        <div class="text-center">
+                                            <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
+                                        </div>
+                                        <hr>
+                                        <p>Description: <strong>${description}</strong></p>
+                                        <p>Humidity: <strong>${humidity}%</strong></p>
+                                        <p>Wind: <strong>${wind} mph</strong></p>
+                                        <p>Pressure: <strong>${pressure} hPa</strong></p>
+                                    </div>
+                                </div>
+                            `)
+                        }
+                    })
+                }
+            )
+        }
+        // CREATED LISTENER FOR WHEN MAP IS CLICKED
+        map.on('click', addMarker);
 
     </script>
     </body>
