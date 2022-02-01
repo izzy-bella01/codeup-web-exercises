@@ -26,7 +26,7 @@
     <body>
     <h1>Weather Map Project</h1>
     <div class="d-flex" id="forecast"></div>
-    <div class="m-2" id="map"></div>
+    <div id="map"></div>
 
 
                                             <!--BOOTSTRAP-->
@@ -55,12 +55,12 @@
                 var dateObject = new Date(unixMilli);
                 var date = dateObject.toLocaleDateString();
                 // VARIABLE CREATED TO USE IN APPEND
-                var tempMin = weather.daily[i].temp.min;
-                var tempMax = weather.daily[i].temp.max;
+                var tempMin = Math.round(weather.daily[i].temp.min);
+                var tempMax = Math.round(weather.daily[i].temp.max);
                 var description = weather.daily[i].weather[0].description;
-                var humidity = weather.daily[i].humidity;
-                var wind = weather.daily[i].wind_speed;
-                var pressure = weather.daily[i].pressure;
+                var humidity = Math.round(weather.daily[i].humidity);
+                var wind = Math.round(weather.daily[i].wind_speed);
+                var pressure = Math.round(weather.daily[i].pressure);
                 // VARIABLES FOR GRABBING WEATHER ICON
                 var iconCode = weather.daily[i].weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
@@ -69,15 +69,15 @@
                     `<div class="card m-2 card-style">
                         <h6 class="card-header text-center">${date}</h6>
                         <div class="card-body">
-                            <p class="text-center">${tempMin}/${tempMax}</p>
+                            <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
                             <div class="text-center">
                                 <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
                             </div>
                             <hr>
                             <p>Description: <strong>${description}</strong></p>
-                            <p>Humidity: <strong>${humidity}</strong></p>
-                            <p>Wind: <strong>${wind}</strong></p>
-                            <p>Pressure: <strong>${pressure}</strong></p>
+                            <p>Humidity: <strong>${humidity}%</strong></p>
+                            <p>Wind: <strong>${wind} mph</strong></p>
+                            <p>Pressure: <strong>${pressure} hPa</strong></p>
                         </div>
                     </div>
                 `)
@@ -96,8 +96,6 @@
         const marker = new mapboxgl.Marker()
             .setLngLat([-98.4916, 29.4252])
             .addTo(map);
-
-
 
 
     </script>
