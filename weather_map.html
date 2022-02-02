@@ -21,16 +21,27 @@
                  width: 100%;
                  height: 350px;
              }
+            p {
+                font-size: 14px;
+            }
+            #placeWord {
+                font-size: 18px;
+            }
         </style>
     </head>
     <body>
-    <h1>Weather Map Project</h1>
-    <div class="input-group">
-        <input id="place" type="text">
-        <input class="btn btn-primary mx-2" id="find" value="Find" type="button"/>
+    <h1 class="text-center">Weather Map</h1>
+    <div class="container-fluid">
+        <p class="m-2" id="placeWord">Search for place</p>
+        <p class="m-2">Please enter city and state for accurate result ex.(San Antonio, Texas)</p>
+        <div class="input-group mx-2">
+            <input id="place" type="text">
+            <button class="btn btn-outline-secondary mx-2" id="find" type="button">Find</button>
+        </div>
+        <div class="d-flex" id="forecast"></div>
+        <div id="map"></div>
     </div>
-    <div class="d-flex" id="forecast"></div>
-    <div id="map"></div>
+
 
 
                                             <!--BOOTSTRAP-->
@@ -75,15 +86,15 @@
                     `<div class="card m-2 mt-4 card-style">
                         <h6 class="card-header text-center">${date}</h6>
                         <div class="card-body">
-                            <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                            <p class="card-text text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
                             <div class="text-center">
                                 <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
                             </div>
                             <hr>
-                            <p>Description: <strong>${description}</strong></p>
-                            <p>Humidity: <strong>${humidity}%</strong></p>
-                            <p>Wind: <strong>${wind} mph</strong></p>
-                            <p>Pressure: <strong>${pressure} hPa</strong></p>
+                            <p class="card-text">Description: <strong>${description}</strong></p>
+                            <p class="card-text">Humidity: <strong>${humidity}%</strong></p>
+                            <p class="card-text">Wind: <strong>${wind} mph</strong></p>
+                            <p class="card-text">Pressure: <strong>${pressure} hPa</strong></p>
                         </div>
                     </div>
                 `)
@@ -156,15 +167,15 @@
                                 `<div class="card m-2 mt-4 card-style">
                                     <h6 class="card-header text-center">${date}</h6>
                                     <div class="card-body">
-                                        <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                                        <p class="card-text text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
                                         <div class="text-center">
                                             <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
                                         </div>
                                         <hr>
-                                        <p>Description: <strong>${description}</strong></p>
-                                        <p>Humidity: <strong>${humidity}%</strong></p>
-                                        <p>Wind: <strong>${wind} mph</strong></p>
-                                        <p>Pressure: <strong>${pressure} hPa</strong></p>
+                                        <p class="card-text">Description: <strong>${description}</strong></p>
+                                        <p class="card-text">Humidity: <strong>${humidity}%</strong></p>
+                                        <p class="card-text">Wind: <strong>${wind} mph</strong></p>
+                                        <p class="card-text">Pressure: <strong>${pressure} hPa</strong></p>
                                     </div>
                                 </div>
                             `)
@@ -229,15 +240,15 @@
                                 `<div class="card m-2 mt-4 card-style">
                                     <h6 class="card-header text-center">${date}</h6>
                                     <div class="card-body">
-                                        <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                                        <p class="card-text text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
                                         <div class="text-center">
                                             <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
                                         </div>
                                         <hr>
-                                        <p>Description: <strong>${description}</strong></p>
-                                        <p>Humidity: <strong>${humidity}%</strong></p>
-                                        <p>Wind: <strong>${wind} mph</strong></p>
-                                        <p>Pressure: <strong>${pressure} hPa</strong></p>
+                                        <p class="card-text">Description: <strong>${description}</strong></p>
+                                        <p class="card-text">Humidity: <strong>${humidity}%</strong></p>
+                                        <p class="card-text">Wind: <strong>${wind} mph</strong></p>
+                                        <p class="card-text">Pressure: <strong>${pressure} hPa</strong></p>
                                     </div>
                                 </div>
                             `)
@@ -292,20 +303,22 @@
                                 `<div class="card m-2 mt-4 card-style">
                                     <h6 class="card-header text-center">${date}</h6>
                                     <div class="card-body">
-                                        <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                                        <p class="card-text text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
                                         <div class="text-center">
                                             <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
                                         </div>
                                         <hr>
-                                        <p>Description: <strong>${description}</strong></p>
-                                        <p>Humidity: <strong>${humidity}%</strong></p>
-                                        <p>Wind: <strong>${wind} mph</strong></p>
-                                        <p>Pressure: <strong>${pressure} hPa</strong></p>
+                                        <p class="card-text">Description: <strong>${description}</strong></p>
+                                        <p class="card-text">Humidity: <strong>${humidity}%</strong></p>
+                                        <p class="card-text">Wind: <strong>${wind} mph</strong></p>
+                                        <p class="card-text">Pressure: <strong>${pressure} hPa</strong></p>
                                     </div>
                                 </div>
                             `)
                         }
                     })
+                    var flyToMarker = map.flyTo({center: [placeData[0].lon, placeData[0].lat], zoom: 12});
+                    marker.setLngLat([placeData[0].lon, placeData[0].lat]).addTo(flyToMarker);
                 }
             )
         }
