@@ -27,7 +27,7 @@
     <h1>Weather Map Project</h1>
     <div class="input-group">
         <input id="place" type="text">
-        <button class="btn btn-primary mx-2" type="submit">Find</button>
+        <input class="btn btn-primary mx-2" id="find" value="Find" type="button"/>
     </div>
     <div class="d-flex" id="forecast"></div>
     <div id="map"></div>
@@ -122,8 +122,8 @@
                 lon: lngLat.lng
             })
             .done(
-                function(newData) {
-                    console.log(newData);
+                function(dragData) {
+                    console.log(dragData);
                     $.get("https://api.openweathermap.org/data/2.5/onecall", {
                         // ONE CALL GETS DATA FOR A 7 DAY FORECAST
                         APPID: WEATHER_MAP_TOKEN,
@@ -195,9 +195,8 @@
                 lon: coordinates.lng
             })
             .done(
-                function(newData) {
-                    console.log(newData);
-                    // ??? take coordinates from newData and plug into weather map api
+                function(addData) {
+                    console.log(addData);
                     $.get("https://api.openweathermap.org/data/2.5/onecall", {
                         // ONE CALL GETS DATA FOR A 7 DAY FORECAST
                         APPID: WEATHER_MAP_TOKEN,
@@ -251,8 +250,67 @@
         map.on('click', addMarker);
 
 
-        // TAKE INPUT VALUE FROM USER TYPED AND INPUT INTO GEOCODE AS DONE WITH REVERSE
-
+        // TAKE INPUT VALUE FROM USER TYPED AND INPUT INTO GEOCODE API
+        function placeInput() {
+            var placeToFind = $("#place").val();
+            $.get("https://api.openweathermap.org/geo/1.0/direct", {
+                APPID: WEATHER_MAP_TOKEN,
+                q: placeToFind
+            })
+            .done(
+                function(placeData) {
+                    console.log(placeData);
+                    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                        // ONE CALL GETS DATA FOR A 7 DAY FORECAST
+                        APPID: WEATHER_MAP_TOKEN,
+                        lat:    placeData[0].lat,
+                        lon:   placeData[0].lon,
+                        units: "imperial"
+                    })
+                    .done(function(weather) {
+                        console.log(weather);
+                        // THIS LOOP RUNS THROUGH THE WEATHER DATA OBJECT TO GET SPECIFIC INFORMATION NEEDED FOR 5 DAYS
+                        // 2nd time around this clears previous html
+                        $("#forecast").html('')
+                        for(var i = 0; i < 5; i++) {
+                            // NEEDED TO CONVERT UNIX DATE TO HUMAN READABLE DATE
+                            var unixMilli = ((weather.daily[i].dt)*1000);
+                            var dateObject = new Date(unixMilli);
+                            var date = dateObject.toLocaleDateString();
+                            // VARIABLE CREATED TO USE IN APPEND
+                            var tempMin = Math.round(weather.daily[i].temp.min);
+                            var tempMax = Math.round(weather.daily[i].temp.max);
+                            var description = weather.daily[i].weather[0].description;
+                            var humidity = Math.round(weather.daily[i].humidity);
+                            var wind = Math.round(weather.daily[i].wind_speed);
+                            var pressure = Math.round(weather.daily[i].pressure);
+                            // VARIABLES FOR GRABBING WEATHER ICON
+                            var iconCode = weather.daily[i].weather[0].icon;
+                            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                            // APPENDING WEATHER DATA VARIABLES TO HTML USING TEMPLATE LITERALS
+                            $("#forecast").append(
+                                `<div class="card m-2 mt-4 card-style">
+                                    <h6 class="card-header text-center">${date}</h6>
+                                    <div class="card-body">
+                                        <p class="text-center">${tempMin}&deg;F / ${tempMax}&deg;F</p>
+                                        <div class="text-center">
+                                            <img id="weatherIcon" src="${iconUrl}" alt="Weather icon">
+                                        </div>
+                                        <hr>
+                                        <p>Description: <strong>${description}</strong></p>
+                                        <p>Humidity: <strong>${humidity}%</strong></p>
+                                        <p>Wind: <strong>${wind} mph</strong></p>
+                                        <p>Pressure: <strong>${pressure} hPa</strong></p>
+                                    </div>
+                                </div>
+                            `)
+                        }
+                    })
+                }
+            )
+        }
+        // CREATED LISTENER FOR WHEN "FIND" BUTTON IS CLICKED
+        $("#find").on("click", placeInput);
     </script>
     </body>
 </html>
