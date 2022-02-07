@@ -100,7 +100,7 @@ let foodOptions = [
 let names = foodOptions.map(restaurant => `<li> ${restaurant.name} </li>`);
 // console.log(names);
 
-names.forEach(name => document.querySelector("#restaurants").innerHTML += name);
+// names.forEach(name => document.querySelector("#restaurants").innerHTML += name);
 
 
 // FILTER
@@ -152,7 +152,7 @@ console.log(specialties);
 let sports = ["baseball", "football", "hockey", "curling", "basketball"];
 
 let sportsString = sports.reduce((previousValue, currentValue) => {
-  return previousValue + " " + currentValue
-}, " ")
+  return previousValue + ", " + currentValue
+})
 
 console.log(sportsString);
