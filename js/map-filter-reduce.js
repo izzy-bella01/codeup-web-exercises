@@ -68,12 +68,48 @@ console.log(userYearsAvg);
 let longestEmail = userEmails.reduce((a, b) => {
     return a.length > b.length ? a : b;
 })
+
+// same as
+    // let longestEmAil = userEmails.reduce((a, b) => {
+    //     if( a.length > b.length) {
+    //         return a;
+    //     } else {
+    //         return b;
+    //     }
+    // })
+// & same as
+    // let longestEmail = users.reduce((a, b) => {
+    //     return a.email.length > b.email.length ? a.email : b;
+    // })
 console.log(longestEmail);
+
 
 // Problem 5
 // Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
 
-let userNamesString = users.reduce((previousValue, user) => {
-    return previousValue + user.name + ", "
-}, "Your instructors are: " )
-console.log(userNamesString);
+// let userNamesString = users.reduce((previousValue, user) => {
+//     return previousValue + user.name + ", "
+// }, "Your instructors are: " )
+// console.log(userNamesString);
+
+let instructors = users.reduce((finalString, nextUser, index) => {
+    if (index === users.length - 1) {
+        return finalString + nextUser.name + "."
+    } else {
+        return finalString + nextUser.name + ", "
+    }
+}, "Your instructors are: ")
+console.log(instructors);
+
+// Bonus
+// Use .reduce to get the unique list of languages from the list of users.
+
+let uniqueLanguages = users.reduce((langs, currentVal) => {
+    currentVal.languages.forEach(language => {
+        if(!langs.includes(language)) {
+            langs.push(language)
+        }
+    })
+    return langs;
+}, [])
+console.log(uniqueLanguages)
