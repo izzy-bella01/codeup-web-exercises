@@ -74,15 +74,41 @@
 // accepts a callback function
 // that callback function accepts the error message as a parameter
 
+// chaining .then() together
+// fetch("https://dog.ceo/api/breeds/image/random")
+//     // ✅ successful response object becomes the parameter for the callback function in the .then() method
+//     .then(response => response.json())
+//     // .then() accepts another callback function, which accepts the returned item (the result) from the previous chain
+//     .then(result => {
+//         console.log(result);
+//         document.getElementById("floofer").setAttribute("src", result.message); // add floofer picture from api to page
+//     })
+//     .catch(err => {
+//         console.log("ERROR: ", err)
+//     })
 
-fetch("https://dog.ceo/api/breeds/image/random")
-    // ✅ successful response object becomes the parameter for the callback function in the .then() method
-    .then(response => response.json())
-    // .then() accepts another callback function, which accepts the returned item (the result) from the previous chain
-    .then(result => {
-        console.log(result)
-    })
-    .catch(err => {
-        console.log("ERROR: ", err)
-    })
+
+// CUSTOM PROMISES
+
+//
+
+const myPromise =
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let randomNum = Math.random()
+            if (randomNum > 0.5) {
+                console.log("random number: ", randomNum);
+                resolve();
+            } else {
+                console.log("rejected random number: ", randomNum);
+
+                reject();
+            }
+        }, 1500);
+    });
+
+console.log(myPromise); // a pending promise
+
+myPromise.then(() => console.log('resolved!'));
+myPromise.catch(() => console.log('rejected!'));
 
