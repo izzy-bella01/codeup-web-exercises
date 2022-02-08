@@ -1,5 +1,7 @@
 "use strict";
 
+
+//-------------PROBLEM ONE-----------------
 function userDateCommit(owner, repo) {
      return fetch( `https://api.github.com/repos/${owner}/${repo}/commits`, {headers: {'Authorization': PROMISES_EXERCISE_TOKEN}})
          .then(response => response.json())
@@ -13,17 +15,15 @@ function userDateCommit(owner, repo) {
 console.log(userDateCommit("izzy-bella01", "codeup-web-exercises"));
 
 
-//------------------------------
-// function getGithubUsernames() {
-//     return fetch('https://api.github.com/users')
-//         .then(response => response.json())
-// }
-//
-// // later on...
-//
-// getGithubUsernames().then( users => {
-//     users.forEach( userObj => {
-//         // do something with each username
-//         console.log(userObj.login);
-//     });
-// }).catch(error => console.error(error));
+//-------------PROBLEM TWO-----------------
+function wait(number) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Successful");
+            reject("Failed");
+        }, number);
+
+    });
+}
+wait(1000).then(() => console.log('You\'ll see this after 1 second'));
+wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
