@@ -5,7 +5,6 @@
 function userDateCommit(owner, repo) {
      return fetch( `https://api.github.com/repos/${owner}/${repo}/commits`, {headers: {'Authorization': PROMISES_EXERCISE_TOKEN}})
          .then(response => response.json())
-         // .then(result => console.log(result))
          .then(user => {
              console.log("Last commit made at: ", user[0].commit.author.date);
          })
@@ -14,7 +13,7 @@ function userDateCommit(owner, repo) {
 
 console.log(userDateCommit("izzy-bella01", "codeup-web-exercises"));
 
-
+// test commit"
 //-------------PROBLEM TWO-----------------
 function wait(number) {
     return new Promise((resolve, reject) => {
@@ -22,7 +21,6 @@ function wait(number) {
             resolve("Successful");
             reject("Failed");
         }, number);
-
     });
 }
 wait(1000).then(() => console.log('You\'ll see this after 1 second'));
