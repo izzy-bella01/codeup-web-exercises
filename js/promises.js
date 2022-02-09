@@ -13,15 +13,24 @@ function userDateCommit(owner, repo) {
 
 console.log(userDateCommit("izzy-bella01", "codeup-web-exercises"));
 
-// test commit"
 //-------------PROBLEM TWO-----------------
-function wait(number) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Successful");
-            reject("Failed");
-        }, number);
-    });
+
+// ORIGINAL FUNCTION
+
+// function wait(number) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve("Successful");
+//             reject("Failed");
+//         }, number);
+//     });
+// }
+
+// SIMPLIFIED VERSION
+
+let wait = (number) => {
+    return new Promise(resolve => setTimeout(resolve, number))
 }
+
 wait(1000).then(() => console.log('You\'ll see this after 1 second'));
 wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
