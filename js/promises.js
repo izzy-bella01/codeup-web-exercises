@@ -17,14 +17,14 @@ console.log(userDateCommit("izzy-bella01", "codeup-web-exercises"));
 
 // ORIGINAL FUNCTION
 
-// function wait(number) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve("Successful");
-//             reject("Failed");
-//         }, number);
-//     });
-// }
+function wait(number) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Successful");
+            reject("Failed");
+        }, number);
+    });
+}
 
 // SIMPLIFIED VERSION
 
