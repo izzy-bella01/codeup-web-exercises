@@ -24,6 +24,9 @@
                  height: 350px;
                  border: 2px solid rgba(0, 0, 0, 0.51);
             }
+            body {
+                background-image: linear-gradient(180deg, #cfdaf3, #0f39e7);
+            }
             h1 {
                 background-color: #cfdaf3;
                 border-bottom: 2px solid rgba(0, 0, 0, 0.51);
@@ -41,7 +44,8 @@
                 background-color: #cfdaf3;
             }
             .card-header {
-                background-color: #afb5c7;
+                background-color: rgba(0, 2, 5, 0.2);
+
             }
         </style>
     </head>
@@ -56,7 +60,7 @@
         <p class="m-2">Please enter city and state for <strong>accurate</strong> result ex.(San Antonio, Texas)</p>
         <div class="input-group mx-2">
             <input id="place" type="text">
-            <button class="btn btn-outline-secondary mx-2" id="find" type="button">Find</button>
+            <button class="btn btn-light-outline mx-2" id="find" type="button"><i class="fas fa-search"></i></button>
         </div>
         <div class="d-flex" id="forecast"></div>
         <div id="map"></div>
